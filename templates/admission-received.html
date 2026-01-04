@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admission Inquiry Received</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f5f7f8;margin:0;padding:0}
+    .container{max-width:680px;margin:32px auto;background:#fff;padding:24px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+    h1{color:#2c7873}
+    .meta{color:#555;font-size:14px}
+    .content{margin-top:18px;color:#333;line-height:1.5}
+    .footer{margin-top:24px;color:#888;font-size:13px}
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    td{padding:6px;border:1px solid #eee}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admission Inquiry Received</h1>
+    <p class="meta">Received on {{date}}</p>
+
+    <div class="content">
+      <p>Thank you, <strong>{{contactName}}</strong>. We received your admission inquiry and will review the information below:</p>
+      <table>
+        <tr><td><strong>Prospective Resident:</strong></td><td>{{residentName}}</td></tr>
+        <tr><td><strong>Preferred Tour Date:</strong></td><td>{{tourDate}}</td></tr>
+        <tr><td><strong>Move-in Timeline:</strong></td><td>{{timeline}}</td></tr>
+        <tr><td><strong>Room Preference:</strong></td><td>{{roomType}}</td></tr>
+        <tr><td><strong>Contact Phone/Email:</strong></td><td>{{contactPhone}} / {{contactEmail}}</td></tr>
+      </table>
+
+      <p style="margin-top:12px">Our admissions coordinator will contact you to schedule a tour and discuss next steps. If you need immediate help, call +91 85199 37446.</p>
+    </div>
+
+    <div class="footer">Harmony Haven • <a href="mailto:{{support_email}}">{{support_email}}</a></div>
+  </div>
+</body>
+</html>

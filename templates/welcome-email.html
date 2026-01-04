@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Welcome to Harmony Haven</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f8fafb;margin:0;padding:0}
+    .wrap{max-width:680px;margin:28px auto;background:#fff;padding:24px;border-radius:8px;border:1px solid #eef3f3}
+    h1{color:#2c7873}
+    .lead{color:#333}
+    .btn{display:inline-block;padding:10px 16px;background:#2c7873;color:#fff;border-radius:6px;text-decoration:none}
+    .muted{color:#777;font-size:13px;margin-top:18px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Welcome, {{name}}!</h1>
+    <p class="lead">Thank you for registering with Harmony Haven. Your account has been created and you can manage your inquiries and appointments using the link below.</p>
+
+    <p><a class="btn" href="{{login_link}}">Access your account</a></p>
+
+    <p class="muted">If you did not register for this account, please contact us at <a href="mailto:{{support_email}}">{{support_email}}</a>.</p>
+
+    <p class="muted">— Harmony Haven Team</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "db": {
+    "type": "sqlite",
+    "path": "backend/data/app.db",
+    "dsn": ""
+  },
+  "uploads": {
+    "base": "data/uploads",
+    "profiles": "data/uploads/profiles",
+    "documents": "data/uploads/documents",
+    "forms": "data/uploads/forms"
+  },
+  "site": {
+    "admin_email": "venkireddy2611@gmail.com",
+    "site_name": "Harmony Haven"
+  }
+}

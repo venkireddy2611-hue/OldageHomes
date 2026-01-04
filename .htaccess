@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Inquiry | Harmony Haven</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-home logo-icon"></i>
+                <h1>Harmony Haven</h1>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admission.html" class="active btn-nav">Admission</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Admission Inquiry</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Admission</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Admission Process -->
+    <section class="admission-process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Admission Process</h2>
+                <p>Simple, transparent, and supportive from start to finish</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Initial Inquiry</h3>
+                        <p>Contact us via phone, email, or the form below. We'll answer your preliminary questions and schedule a tour.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Facility Tour</h3>
+                        <p>Visit our community, meet our staff, see our accommodations, and experience daily life at Harmony Haven.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Needs Assessment</h3>
+                        <p>Our care coordinator will meet with you to discuss specific needs, preferences, and care requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Financial Review</h3>
+                        <p>We'll discuss costs, payment options, insurance coverage, and any available financial assistance.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Paperwork & Move-In</h3>
+                        <p>Complete necessary documentation and plan the move-in day to ensure a smooth transition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Form -->
+    <section class="inquiry-form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2>Admission Inquiry Form</h2>
+                <p class="form-intro">Please complete this form to begin the admission process. Fields marked with * are required.</p>
+                
+                <form id="admissionForm">
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Prospective Resident Information</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="residentName">Full Name *</label>
+                                <input type="text" id="residentName" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="residentDob">Date of Birth *</label>
+                                <input type="date" id="residentDob" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="residentGender">Gender</label>
+                                <select id="residentGender" class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="female">Female</option>
+                                    <option value="male">Male</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not">Prefer not to say</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="maritalStatus">Marital Status</label>
+                                <select id="maritalStatus" class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="single">Single</option>
+                                    <option value="married">Married</option>
+                                    <option value="widowed">Widowed</option>
+                                    <option value="divorced">Divorced</option>
+                                    <option value="separated">Separated</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="currentLiving">Current Living Situation</label>
+                            <textarea id="currentLiving" class="form-control" rows="3" placeholder="Describe current living arrangements, who they live with, etc."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3><i class="fas fa-stethoscope"></i> Health & Care Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="primaryDiagnosis">Primary Medical Diagnoses</label>
+                            <textarea id="primaryDiagnosis" class="form-control" rows="3" placeholder="List any medical conditions, diagnoses, or health concerns"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mobility">Mobility Level</label>
+                            <select id="mobility" class="form-control">
+                                <option value="">Select</option>
+                                <option value="independent">Independent (no assistance needed)</option>
+                                <option value="cane-walker">Uses cane/walker</option>
+                                <option value="wheelchair">Wheelchair user</option>
+                                <option value="bed-bound">Mostly bed-bound</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cognitiveStatus">Cognitive Status</label>
+                            <select id="cognitiveStatus" class="form-control">
+                                <option value="">Select</option>
+                                <option value="alert">Alert and oriented</option>
+                                <option value="mild">Mild cognitive impairment</option>
+                                <option value="moderate">Moderate cognitive impairment</option>
+                                <option value="dementia">Dementia diagnosis</option>
+                                <option value="alzheimers">Alzheimer's diagnosis</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Assistance Needed (check all that apply)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="assistBathing" value="bathing">
+                                    <label for="assistBathing">Bathing</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="assistDressing" value="dressing">
+                                    <label for="assistDressing">Dressing</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="assistEating" value="eating">
+                                    <label for="assistEating">Eating</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="assistMobility" value="mobility">
+                                    <label for="assistMobility">Mobility/Transferring</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="assistMedication" value="medication">
+                                    <label for="assistMedication">Medication Management</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="assistIncontinence" value="incontinence">
+                                    <label for="assistIncontinence">Incontinence Care</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3><i class="fas fa-user-friends"></i> Contact Person Information</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Your Name *</label>
+                                <input type="text" id="contactName" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactRelationship">Relationship to Resident *</label>
+                                <input type="text" id="contactRelationship" class="form-control" required placeholder="e.g., Daughter, Son, Spouse, etc.">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number *</label>
+                                <input type="tel" id="contactPhone" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address *</label>
+                                <input type="email" id="contactEmail" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredContact">Preferred Contact Method</label>
+                                <select id="preferredContact" class="form-control">
+                                    <option value="phone">Phone Call</option>
+                                    <option value="email">Email</option>
+                                    <option value="text">Text Message</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="bestTime">Best Time to Contact</label>
+                                <select id="bestTime" class="form-control">
+                                    <option value="any">Any Time</option>
+                                    <option value="morning">Morning (9 AM - 12 PM)</option>
+                                    <option value="afternoon">Afternoon (1 PM - 4 PM)</option>
+                                    <option value="evening">Evening (5 PM - 7 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3><i class="fas fa-calendar-alt"></i> Visit & Timing</h3>
+                        
+                        <div class="form-group">
+                            <label for="tourDate">Preferred Tour Date</label>
+                            <input type="date" id="tourDate" class="form-control" min="<?php echo date('Y-m-d'); ?>">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">Desired Move-In Timeline</label>
+                            <select id="timeline" class="form-control">
+                                <option value="">Select</option>
+                                <option value="urgent">Urgent (within 2 weeks)</option>
+                                <option value="soon">Soon (within 1 month)</option>
+                                <option value="1-3months">1-3 months</option>
+                                <option value="3-6months">3-6 months</option>
+                                <option value="exploring">Just exploring options</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="roomType">Room Type Preference</label>
+                            <select id="roomType" class="form-control">
+                                <option value="">Select</option>
+                                <option value="private">Private Room</option>
+                                <option value="semi-private">Semi-Private Room</option>
+                                <option value="no-preference">No Preference</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additionalInfo">Additional Information or Questions</label>
+                            <textarea id="additionalInfo" class="form-control" rows="4" placeholder="Any other information you'd like us to know or questions you have"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3><i class="fas fa-shield-alt"></i> Privacy & Consent</h3>
+                        
+                        <div class="form-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="privacyPolicy" required>
+                                <label for="privacyPolicy">I have read and agree to the <a href="#" id="privacyLink">Privacy Policy</a> *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent" required>
+                                <label for="consent">I consent to Harmony Haven contacting me regarding this inquiry *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="newsletterConsent" checked>
+                                <label for="newsletterConsent">I would like to receive newsletter and senior care tips (optional)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit Admission Inquiry</button>
+                        <p class="form-note">We will contact you within 24-48 hours of receiving your inquiry.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Information -->
+    <section class="financial-info">
+        <div class="container">
+            <div class="section-title">
+                <h2>Financial Information</h2>
+                <p>Transparent pricing and payment options</p>
+            </div>
+            
+            <div class="financial-grid">
+                <div class="financial-card">
+                    <h3><i class="fas fa-credit-card"></i> Payment Options</h3>
+                    <ul>
+                        <li>Private Pay</li>
+                        <li>Long-Term Care Insurance</li>
+                        <li>VA Benefits</li>
+                        <li>Medicaid (pending approval)</li>
+                        <li>Reverse Mortgage Proceeds</li>
+                    </ul>
+                </div>
+                
+                <div class="financial-card">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> What's Included</h3>
+                    <ul>
+                        <li>Room & Board</li>
+                        <li>Three meals daily + snacks</li>
+                        <li>All utilities (except phone)</li>
+                        <li>Housekeeping & laundry</li>
+                        <li>Basic care services</li>
+                        <li>Activities & entertainment</li>
+                    </ul>
+                </div>
+                
+                <div class="financial-card">
+                    <h3><i class="fas fa-handshake"></i> Financial Assistance</h3>
+                    <ul>
+                        <li>Payment plans available</li>
+                        <li>Scholarship opportunities</li>
+                        <li>Charity care for qualifying cases</li>
+                        <li>Assistance with benefit applications</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="financial-note">
+                <p><i class="fas fa-info-circle"></i> For a detailed cost breakdown and personalized financial assessment, please schedule a consultation with our admissions coordinator.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Harmony Haven</h3>
+                    <p>A caring home for seniors where dignity, respect, and quality of life are our top priorities. Providing exceptional care since 2005.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="admission.html">Admission</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Serenity Lane, Green Valley, Cityville 56789</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@harmonyhaven.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates and senior care tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn-footer">Subscribe</button>
+                    </form>
+                    <p class="admin-link"><a href="admin.html"><i class="fas fa-lock"></i> Admin Login</a></p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Harmony Haven Senior Living Community. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart"></i> for our senior community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Modal -->
+    <div class="modal" id="privacyModal">
+        <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="document.getElementById('privacyModal').classList.remove('active')">&times;</button>
+            <h2>Privacy Policy</h2>
+            <div class="privacy-content">
+                <p><strong>Last Updated: October 2023</strong></p>
+                
+                <h3>Information We Collect</h3>
+                <p>We collect information you provide directly to us, such as when you fill out an admission inquiry form, contact us, or schedule a tour. This may include:</p>
+                <ul>
+                    <li>Name, email address, phone number</li>
+                    <li>Date of birth and health information</li>
+                    <li>Information about care needs and preferences</li>
+                    <li>Financial information for payment processing</li>
+                </ul>
+                
+                <h3>How We Use Your Information</h3>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Respond to your inquiries and provide information about our services</li>
+                    <li>Process admission applications and assess care needs</li>
+                    <li>Communicate with you about your inquiry or application</li>
+                    <li>Improve our services and facilities</li>
+                    <li>Comply with legal obligations</li>
+                </ul>
+                
+                <h3>Information Sharing</h3>
+                <p>We do not sell your personal information. We may share information with:</p>
+                <ul>
+                    <li>Service providers who assist in our operations</li>
+                    <li>Healthcare professionals involved in care assessment</li>
+                    <li>Government agencies as required by law</li>
+                    <li>With your consent, for other purposes</li>
+                </ul>
+                
+                <h3>Data Security</h3>
+                <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, or disclosure.</p>
+                
+                <h3>Your Rights</h3>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access the personal information we hold about you</li>
+                    <li>Request correction of inaccurate information</li>
+                    <li>Request deletion of your information (subject to legal requirements)</li>
+                    <li>Opt-out of marketing communications</li>
+                </ul>
+                
+                <p>For questions about our privacy practices or to exercise your rights, contact us at privacy@harmonyhaven.com or (555) 123-4567.</p>
+                
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="document.getElementById('privacyModal').classList.remove('active'); document.getElementById('privacyPolicy').checked = true;">I Accept</button>
+                    <button class="btn" onclick="document.getElementById('privacyModal').classList.remove('active')">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/validation.js"></script>
+    <script type="module" src="js/gallery.js"></script>
+    <script type="module" src="js/site.js"></script>
+    <style>
+        /* Additional styles for admission page */
+        .admission-process {
+            background-color: var(--light-color);
+        }
+        
+        .process-steps {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .process-step:before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 80px;
+            bottom: -30px;
+            width: 2px;
+            background-color: var(--secondary-color);
+            z-index: 0;
+        }
+        
+        .process-step:last-child:before {
+            display: none;
+        }
+        
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 25px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .inquiry-form-section {
+            background-color: white;
+        }
+        
+        .form-intro {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        
+        .form-section h3 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+        }
+        
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .btn-lg {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+        
+        .form-note {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .financial-info {
+            background-color: var(--light-color);
+        }
+        
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .financial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .financial-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .financial-card ul {
+            list-style: none;
+        }
+        
+        .financial-card li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .financial-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .financial-note {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .financial-note i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .privacy-content {
+            padding: 20px 0;
+        }
+        
+        .privacy-content h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .privacy-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .privacy-content li {
+            margin-bottom: 5px;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .process-step:before {
+                left: 50%;
+                top: 110px;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script>
+        // Newsletter form
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert(`Thank you for subscribing with ${email}! You'll receive our newsletter soon.`);
+                    this.reset();
+                });
+            }
+            
+            // Privacy policy link
+            const privacyLink = document.getElementById('privacyLink');
+            const privacyModal = document.getElementById('privacyModal');
+            
+            if (privacyLink && privacyModal) {
+                privacyLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    privacyModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            // Close modal when clicking outside
+            if (privacyModal) {
+                privacyModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+            
+            // Set minimum date for tour date to today
+            const tourDateInput = document.getElementById('tourDate');
+            if (tourDateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                tourDateInput.min = today;
+            }
+            
+            // Initialize admission form
+            const admissionForm = document.getElementById('admissionForm');
+            if (admissionForm) {
+                // Form is already initialized by script.js
+                // Add custom handling for this specific form
+                admissionForm.addEventListener('submit', function(e) {
+                    // Let the main script handle validation and submission
+                    // Additional custom validation
+                    const residentDob = document.getElementById('residentDob').value;
+                    if (residentDob) {
+                        const birthDate = new Date(residentDob);
+                        const today = new Date();
+                        const age = today.getFullYear() - birthDate.getFullYear();
+                        
+                        if (age < 60) {
+                            if (!confirm('The prospective resident appears to be under 60 years old. Are you sure this information is correct?')) {
+                                e.preventDefault();
+                                return false;
+                            }
+                        }
+                    }
+                    
+                    return true;
+                });
+            }
+        });
+    </script>
+    <script type="module" src="js/validation.js"></script>
+    <script type="module" src="js/gallery.js"></script>
+    <script type="module" src="js/site.js"></script>
+</body>
+</html>

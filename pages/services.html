@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Harmony Haven Senior Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <style>
+        /* Service Page Specific Styles */
+        .page-header {
+            background: linear-gradient(rgba(44, 120, 115, 0.9), rgba(44, 120, 115, 0.9)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .main-services {
+            padding: 80px 0;
+            background: #f7f9f9;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .service-card-with-image {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card-with-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card-with-image:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: #2c7873;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-content h3 i {
+            color: #ff9a76;
+            font-size: 1.3rem;
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+        
+        .service-content ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-content ul li:before {
+            content: "✓";
+            color: #2c7873;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Service Packages */
+        .service-packages {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c7873;
+            margin-bottom: 15px;
+        }
+        
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .package-card.featured {
+            transform: scale(1.05);
+            border-color: #2c7873;
+            position: relative;
+        }
+        
+        .package-header {
+            padding: 25px;
+            background: #2c7873;
+            color: white;
+            text-align: center;
+        }
+        
+        .package-header h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #ff9a76;
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .package-features {
+            padding: 25px;
+            list-style: none;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .package-features li i {
+            color: #2c7873;
+        }
+        
+        .package-card .btn {
+            display: block;
+            margin: 0 25px 25px;
+            text-align: center;
+            padding: 12px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c7873, #6fb3b8);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-section .btn-primary {
+            background: white;
+            color: #2c7873;
+        }
+        
+        .cta-section .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="Harmony Haven Logo" onerror="this.src='https://via.placeholder.com/60x60/2c7873/ffffff?text=HH'">
+                <div class="logo-text">
+                    <h1>Harmony<span>Haven</span></h1>
+                    <p class="tagline">Senior Care Home</p>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="admission.html" class="btn btn-primary">Book Visit</a>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive Care for Senior Wellness</p>
+        </div>
+    </section>
+
+    <!-- Main Services -->
+    <section class="main-services">
+        <div class="container">
+            <div class="service-grid">
+                <!-- Medical Care -->
+                <div class="service-card-with-image">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="24/7 Medical Care">
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-heartbeat"></i> 24/7 Medical Care</h3>
+                        <p>Round-the-clock nursing staff and emergency medical support</p>
+                        <ul>
+                            <li>Doctor visits & health checkups</li>
+                            <li>Medication management</li>
+                            <li>Emergency response system</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Assisted Living -->
+                <div class="service-card-with-image">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Assisted Living">
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-hands-helping"></i> Assisted Living</h3>
+                        <p>Personal assistance with daily activities</p>
+                        <ul>
+                            <li>Bathing & grooming support</li>
+                            <li>Mobility assistance</li>
+                            <li>Personal care management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Nutritious Meals -->
+                <div class="service-card-with-image">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nutritious Meals">
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-utensils"></i> Nutritious Meals</h3>
+                        <p>Dietician-planned balanced meals</p>
+                        <ul>
+                            <li>Special dietary plans</li>
+                            <li>Fresh & hygienic food</li>
+                            <li>Feeding assistance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Memory Care -->
+                <div class="service-card-with-image">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Memory Care">
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-brain"></i> Memory Care</h3>
+                        <p>Specialized care for dementia patients</p>
+                        <ul>
+                            <li>Secure environment</li>
+                            <li>Cognitive activities</li>
+                            <li>Trained staff</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Recreational Activities -->
+                <div class="service-card-with-image">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Recreational Activities">
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-smile"></i> Recreational Activities</h3>
+                        <p>Daily engaging programs for mental wellness</p>
+                        <ul>
+                            <li>Yoga & exercise</li>
+                            <li>Arts & crafts</li>
+                            <li>Music & entertainment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Housekeeping -->
+                <div class="service-card-with-image">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Housekeeping">
+                    </div>
+                    <div class="service-content">
+                        <h3><i class="fas fa-broom"></i> Housekeeping</h3>
+                        <p>Clean and hygienic living environment</p>
+                        <ul>
+                            <li>Daily room cleaning</li>
+                            <li>Laundry services</li>
+                            <li>Linen changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Packages -->
+    <section class="service-packages">
+        <div class="container">
+            <h2 class="section-title">Service Packages</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Basic Care</h3>
+                        <div class="price">₹25,000<span>/month</span></div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Accommodation</li>
+                        <li><i class="fas fa-check"></i> 3 Meals Daily</li>
+                        <li><i class="fas fa-check"></i> Housekeeping</li>
+                        <li><i class="fas fa-check"></i> Basic Medical Care</li>
+                        <li><i class="fas fa-check"></i> Recreational Activities</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Inquire Now</a>
+                </div>
+
+                <div class="package-card featured">
+                    <div class="package-header">
+                        <h3>Standard Care</h3>
+                        <div class="price">₹35,000<span>/month</span></div>
+                        <div class="popular-tag">Most Popular</div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Everything in Basic</li>
+                        <li><i class="fas fa-check"></i> Assisted Living Support</li>
+                        <li><i class="fas fa-check"></i> Medication Management</li>
+                        <li><i class="fas fa-check"></i> Weekly Doctor Visits</li>
+                        <li><i class="fas fa-check"></i> Personal Care Assistance</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Choose Plan</a>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Premium Care</h3>
+                        <div class="price">₹50,000<span>/month</span></div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Everything in Standard</li>
+                        <li><i class="fas fa-check"></i> 24/7 Nursing Care</li>
+                        <li><i class="fas fa-check"></i> Specialized Diet Plans</li>
+                        <li><i class="fas fa-check"></i> Physical Therapy</li>
+                        <li><i class="fas fa-check"></i> Memory Care Support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Customized Care Plan?</h2>
+            <p>Contact us for a personalized care assessment for your loved one</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Get Assessment</a>
+                <a href="tel:+918519937446" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call for Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="Logo" height="40" onerror="this.src='https://via.placeholder.com/40/2c7873/ffffff?text=HH'">
+                        <h3>Harmony Haven</h3>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+918519937446">+91 85199 37446</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:venkireddy9320@gmail.com">venkireddy9320@gmail.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Emergency</h4>
+                    <ul class="emergency-contacts">
+                        <li><a href="tel:108">108 - Ambulance</a></li>
+                        <li><a href="tel:102">102 - Emergency</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Harmony Haven Senior Care Home</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/918519937446" class="floating-btn whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+918519937446" class="floating-btn call-float">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

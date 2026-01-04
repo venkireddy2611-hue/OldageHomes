@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Harmony Haven Senior Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <style>
+        /* About Page Specific Styles */
+        .page-header {
+            background: linear-gradient(rgba(44, 120, 115, 0.9), rgba(44, 120, 115, 0.9)), 
+                        url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-content h2 {
+            color: #2c7873;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-points {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .about-points li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .about-points li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2c7873;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Mission Vision Section */
+        .mission-vision {
+            background: #f7f9f9;
+            padding: 80px 0;
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .mv-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background: #2c7873;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .mv-card h3 {
+            color: #2c7873;
+            margin-bottom: 15px;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-card {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 5px solid #f7f9f9;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-card h4 {
+            color: #2c7873;
+            margin-bottom: 5px;
+        }
+        
+        .team-role {
+            color: #ff9a76;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #2c7873, #6fb3b8);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: #f7f9f9;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: #2c7873;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="Harmony Haven Logo" onerror="this.src='https://via.placeholder.com/60x60/2c7873/ffffff?text=HH'">
+                <div class="logo-text">
+                    <h1>Harmony<span>Haven</span></h1>
+                    <p class="tagline">Senior Care Home</p>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="admission.html" class="btn btn-primary">Book Visit</a>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Harmony Haven</h1>
+            <p>Compassionate Senior Care Since 2010</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Our Senior Care Home">
+                </div>
+                
+                <div class="about-content">
+                    <h2>Welcome to Our Family</h2>
+                    <ul class="about-points">
+                        <li>Founded in 2010 with a vision for compassionate care</li>
+                        <li>50+ happy residents currently with us</li>
+                        <li>14+ years of trusted senior care experience</li>
+                        <li>24/7 professional medical support</li>
+                        <li>Family-like environment with dignity and respect</li>
+                        <li>98% family satisfaction rate</li>
+                        <li>Specialized care for all senior needs</li>
+                        <li>Beautiful 2-acre campus with gardens</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>Provide exceptional senior care with compassion, dignity, and personalized attention.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>Be the most trusted senior care provider, creating a loving community for our residents.</p>
+                </div>
+                
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Promise</h3>
+                    <p>Treat every resident as family with respect, safety, and quality care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Core Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             alt="Medical Director">
+                    </div>
+                    <h4>Dr. Priya Sharma</h4>
+                    <p class="team-role">Medical Director</p>
+                    <p>MBBS, MD Geriatrics<br>15+ years experience</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1594824434340-7e7dfc37cabb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             alt="Head Nurse">
+                    </div>
+                    <h4>Anita Desai</h4>
+                    <p class="team-role">Head Nurse</p>
+                    <p>Registered Nurse<br>Geriatric Specialist</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             alt="Nutritionist">
+                    </div>
+                    <h4>Rahul Verma</h4>
+                    <p class="team-role">Nutritionist</p>
+                    <p>Elderly Nutrition Expert<br>Diet Planning</p>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             alt="Facility Manager">
+                    </div>
+                    <h4>Venkatesh Reddy</h4>
+                    <p class="team-role">Facility Manager</p>
+                    <p>Founder & Manager<br>14+ years experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>50+</h3>
+                    <p>Happy Residents</p>
+                </div>
+                
+                <div class="stat-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>14+</h3>
+                    <p>Years of Service</p>
+                </div>
+                
+                <div class="stat-item">
+                    <i class="fas fa-user-md"></i>
+                    <h3>24/7</h3>
+                    <p>Medical Support</p>
+                </div>
+                
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <h3>98%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience Our Care Firsthand</h2>
+            <p>Visit us and see why families trust us with their loved ones</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Schedule a Visit</a>
+                <a href="tel:+918519937446" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call for Info
+                </a>
+                <a href="https://wa.me/918519937446" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="Logo" height="40" onerror="this.src='https://via.placeholder.com/40/2c7873/ffffff?text=HH'">
+                        <h3>Harmony Haven</h3>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+918519937446">+91 85199 37446</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:venkireddy9320@gmail.com">venkireddy9320@gmail.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Emergency</h4>
+                    <ul class="emergency-contacts">
+                        <li><a href="tel:108">108 - Ambulance</a></li>
+                        <li><a href="tel:102">102 - Emergency</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Harmony Haven Senior Care Home</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/918519937446" class="floating-btn whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+918519937446" class="floating-btn call-float">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="#top" class="floating-btn top-float">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

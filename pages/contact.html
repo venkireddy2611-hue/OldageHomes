@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarmonyHaven - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        /* Import Google Font matching the screenshot */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --primary: #2c7873; /* Your specified color */
+            --primary-dark: #1f5955;
+            --primary-light: #3d9c96;
+            --secondary: #ff9f1c;
+            --whatsapp: #25D366;
+            --phone: #2c7873;
+            --email: #D44638;
+            --light-bg: #f8f9fa;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header/Navigation Styles */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info-top span {
+            margin-right: 20px;
+        }
+        
+        .contact-info-top i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+        
+        .social-top a {
+            color: var(--white);
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-top a:hover {
+            color: var(--secondary);
+        }
+        
+        .main-nav {
+            padding: 15px 0;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            background-color: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .logo-subtext {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: -3px;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(44, 120, 115, 0.2);
+        }
+        
+        /* Hero Section */
+        .contact-hero {
+            background: linear-gradient(rgba(44, 120, 115, 0.85), rgba(44, 120, 115, 0.9)), url('https://images.unsplash.com/photo-1581579431536-6b7ae2a8c698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .contact-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .contact-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Main Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .contact-info-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8fcfc;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid #e0f0ef;
+        }
+        
+        .contact-form-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .contact-method:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(44, 120, 115, 0.1);
+        }
+        
+        .contact-icon {
+            background-color: var(--primary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .contact-details p {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        
+        /* Quick Contact Icons */
+        .quick-contact-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.9);
+            min-width: 100px;
+        }
+        
+        .contact-icon-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .whatsapp-icon {
+            background-color: var(--whatsapp);
+        }
+        
+        .phone-icon {
+            background-color: var(--phone);
+        }
+        
+        .email-icon {
+            background-color: var(--email);
+        }
+        
+        .icon-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+        }
+        
+        .contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 5px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .contact-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+            background-color: rgba(44, 120, 115, 0.1);
+        }
+        
+        .opening-hours {
+            background-color: #f0f9f8;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .opening-hours h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .opening-hours h3 i {
+            margin-right: 10px;
+        }
+        
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #c0e0dd;
+        }
+        
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-row .day {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .hours-row .time {
+            color: var(--text-light);
+        }
+        
+        .form-title {
+            margin-bottom: 30px;
+        }
+        
+        .form-title h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .form-title p {
+            color: var(--text-light);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d0e6e4;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fcfc;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(44, 120, 115, 0.2);
+            background-color: var(--white);
+        }
+        
+        textarea.form-control {
+            min-height: 140px;
+            resize: vertical;
+        }
+        
+        select.form-control {
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 120, 115, 0.3);
+        }
+        
+        .submit-btn i {
+            margin-left: 10px;
+        }
+        
+        .submit-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emergency-contact {
+            background-color: #fff8e1;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #ff9800;
+            transition: all 0.3s;
+        }
+        
+        .emergency-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.2);
+        }
+        
+        .emergency-contact h3 {
+            color: #e65100;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact h3 i {
+            margin-right: 10px;
+        }
+        
+        .emergency-contact p {
+            color: #bf360c;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .emergency-contact p:hover {
+            color: #d84315;
+        }
+        
+        .emergency-contact small {
+            color: #d84315;
+            font-size: 0.9rem;
+        }
+        
+        /* Process Steps */
+        .process-steps {
+            background-color: #f0f9f8;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            padding: 30px 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(44, 120, 115, 0.15);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .step p {
+            color: var(--text-light);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .footer-links h4, .footer-contact h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 3px 0;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.6;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+            margin-top: 3px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .contact-hero {
+                padding: 60px 0;
+            }
+            
+            .contact-section {
+                padding: 60px 0;
+            }
+            
+            .contact-info-card, .contact-form-card {
+                padding: 30px 20px;
+            }
+            
+            .contact-method {
+                padding: 12px;
+            }
+            
+            .quick-contact-icons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-icon-link {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+        
+        /* Success Message */
+        .success-message {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+            border-left: 4px solid #4caf50;
+            animation: fadeIn 0.5s;
+        }
+        
+        .error-message {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+            border-left: 4px solid #f44336;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Clickable Contact Info */
+        .clickable-contact {
+            cursor: pointer;
+            padding: 8px 12px;
+            transition: all 0.2s;
+            border-radius: 4px;
+            margin: 5px 0;
+            border-left: 3px solid transparent;
+        }
+        
+        .clickable-contact:hover {
+            background-color: rgba(44, 120, 115, 0.08);
+            border-left-color: var(--primary);
+            padding-left: 15px;
+        }
+        
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 1000;
+            font-weight: 500;
+            animation: slideIn 0.3s;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* Loading Animation */
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        
+        <nav class="main-nav">
+            <div class="container nav-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div>
+                        <div class="logo-text">HarmonyHaven</div>
+                        <div class="logo-subtext">Senior Care Home</div>
+                    </div>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="facilities.html">Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                
+                <button class="cta-button" onclick="callPrimaryNumber()">
+                    <i class="fas fa-phone-alt"></i> Call Now
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contact HarmonyHaven</h1>
+            <p>Reach out to us for inquiries, facility tours, or to learn more about our compassionate senior care services. We're here to help you and your loved ones.</p>
+            <button class="cta-button" style="font-size: 1.1rem; padding: 12px 30px;" onclick="openWhatsApp()">
+                <i class="fab fa-whatsapp"></i> WhatsApp: +91 76808 64682
+            </button>
+        </div>
+    </section>
+    
+    <!-- Process Steps -->
+    <section class="process-steps">
+        <div class="container">
+            <div class="section-title">
+                <h2>Easy Contact Process</h2>
+                <p>Simple steps to get in touch with us • Get response in 24 hours</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Quick Contact</h3>
+                    <p>Click on WhatsApp, Phone, or Email icons for instant communication.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Share Your Needs</h3>
+                    <p>Tell us about your requirements or questions regarding senior care.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Response</h3>
+                    <p>Our team will contact you within 24 hours to address your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch With Us</h2>
+                <p>We're here to answer any questions and provide the support you need for your loved ones.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info-card">
+                    <h2 style="font-family: 'Montserrat', sans-serif; color: var(--primary); margin-bottom: 25px; font-size: 1.8rem; display: flex; align-items: center;">
+                        <i class="fas fa-info-circle" style="margin-right: 10px;"></i> Contact Information
+                    </h2>
+                    
+                    <!-- Quick Contact Icons -->
+                    <div class="quick-contact-icons">
+                        <a href="https://wa.me/917680864682?text=Hello%20HarmonyHaven,%20I%20would%20like%20to%20know%20more%20about%20your%20senior%20care%20services" 
+                           class="contact-icon-link" target="_blank" title="Chat on WhatsApp">
+                            <div class="icon-circle whatsapp-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <span class="icon-text">WhatsApp</span>
+                            <small style="color: var(--text-light); font-size: 0.8rem;">+91 76808 64682</small>
+                        </a>
+                        
+                        <a href="tel:+918519937446" class="contact-icon-link" title="Call us">
+                            <div class="icon-circle phone-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <span class="icon-text">Call Now</span>
+                            <small style="color: var(--text-light); font-size: 0.8rem;">+91 85199 37446</small>
+                        </a>
+                        
+                        <a href="mailto:venkireddy9320@gmail.com?subject=Inquiry%20about%20HarmonyHaven%20Senior%20Care&body=Hello%20HarmonyHaven,%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20services." 
+                           class="contact-icon-link" title="Send Email">
+                            <div class="icon-circle email-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="icon-text">Email Us</span>
+                            <small style="color: var(--text-light); font-size: 0.8rem;">venkireddy9320@gmail.com</small>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Location</h3>
+                            <p>123 Serenity Lane, Peaceful Valley<br>Chennai, Tamil Nadu 600001</p>
+                            <a href="https://maps.google.com/?q=123+Serenity+Lane,+Peaceful+Valley,+Chennai,+Tamil+Nadu+600001" 
+                               class="contact-link" target="_blank">Get Directions →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone Numbers</h3>
+                            <div class="clickable-contact" onclick="callPrimaryNumber()">
+                                <i class="fas fa-phone" style="color: var(--primary); margin-right: 8px;"></i>
+                                <strong>Primary:</strong> +91 85199 37446
+                            </div>
+                            <div class="clickable-contact" onclick="callEmergencyNumber()">
+                                <i class="fas fa-phone" style="color: var(--primary); margin-right: 8px;"></i>
+                                <strong>Emergency:</strong> +91 76808 64682
+                            </div>
+                            <p><small style="color: var(--text-light);">Click on any number to call</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Address</h3>
+                            <div class="clickable-contact" onclick="sendEmail()">
+                                <i class="fas fa-envelope" style="color: var(--primary); margin-right: 8px;"></i>
+                                <strong>Email:</strong> venkireddy9320@gmail.com
+                            </div>
+                            <p><small style="color: var(--text-light);">Click to send email</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="opening-hours">
+                        <h3><i class="far fa-clock"></i> Visiting Hours</h3>
+                        <div class="hours-row">
+                            <span class="day">Monday - Friday:</span>
+                            <span class="time">9:00 AM - 7:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Saturday:</span>
+                            <span class="time">10:00 AM - 5:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Sunday:</span>
+                            <span class="time">11:00 AM - 4:00 PM</span>
+                        </div>
+                        <p style="margin-top: 15px; font-style: italic; color: var(--primary); font-size: 0.9rem;">
+                            * By appointment only for first-time visitors
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-card">
+                    <div class="form-title">
+                        <h3><i class="fas fa-paper-plane"></i> Schedule a Visit</h3>
+                        <p>Fill out the form below to schedule a tour or request more information about our facilities and services.</p>
+                    </div>
+                    
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i> <span id="successText">Thank you! Your message has been sent successfully.</span>
+                    </div>
+                    
+                    <div class="error-message" id="errorMessage">
+                        <i class="fas fa-exclamation-circle"></i> <span id="errorText">There was an error sending your message. Please try again.</span>
+                    </div>
+                    
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" id="firstName" class="form-control" placeholder="Enter first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" id="lastName" class="form-control" placeholder="Enter last name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="relationship" class="form-label">Relationship to Resident</label>
+                            <select id="relationship" class="form-control">
+                                <option value="">Select relationship</option>
+                                <option value="son_daughter">Son/Daughter</option>
+                                <option value="spouse">Spouse</option>
+                                <option value="grandchild">Grandchild</option>
+                                <option value="sibling">Sibling</option>
+                                <option value="other_relative">Other Relative</option>
+                                <option value="friend">Friend</option>
+                                <option value="self">Self</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your needs, questions, or preferred visit date/time..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span id="btnText">Send Message</span> <i class="fas fa-paper-plane" id="btnIcon"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="emergency-contact">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Emergency Contact</h3>
+                        <p onclick="callEmergencyNumber()" style="cursor: pointer;">+91 76808 64682</p>
+                        <small>24/7 emergency helpline for residents and families. Click to call.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">HarmonyHaven</div>
+                    <div class="footer-about">
+                        <p>Providing compassionate and professional senior care services since 2010. Our mission is to create a home-like environment where seniors can thrive with dignity and joy.</p>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Serenity Lane, Peaceful Valley, Chennai, Tamil Nadu 600001</p>
+                        <p><i class="fas fa-phone-alt"></i> +91 85199 37446</p>
+                        <p><i class="fas fa-phone-alt"></i> +91 76808 64682 (Emergency)</p>
+                        <p><i class="fas fa-envelope"></i> venkireddy9320@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 HarmonyHaven Senior Care Home. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Copy Notification -->
+    <div class="copy-notification" id="copyNotification">
+        <i class="fas fa-check-circle"></i> <span id="notificationText">Copied to clipboard!</span>
+    </div>
+
+    <!-- Initialize EmailJS with your keys -->
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your public key
+            emailjs.init("BSXezaXSD8mcNB0-k");
+            
+            // Store the IDs for use in the form
+            window.EMAILJS_SERVICE_ID = "service_wa93zl1";
+            window.EMAILJS_TEMPLATE_ID = "template_v5qva0j";
+            window.EMAILJS_TO_EMAIL = "venkireddy9320@gmail.com";
+        })();
+    </script>
+
+    <script>
+        // Function to open WhatsApp
+        function openWhatsApp() {
+            const phoneNumber = "917680864682";
+            const message = "Hello HarmonyHaven, I would like to know more about your senior care services.";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Function to call primary number
+        function callPrimaryNumber() {
+            const phoneNumber = "+918519937446";
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                window.location.href = `tel:${phoneNumber}`;
+            } else {
+                // For desktop, show a notification
+                showNotification("Click the Phone icon to call: +91 85199 37446");
+            }
+        }
+        
+        // Function to call emergency number
+        function callEmergencyNumber() {
+            const phoneNumber = "+917680864682";
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                window.location.href = `tel:${phoneNumber}`;
+            } else {
+                // For desktop, show a notification
+                showNotification("Click the Phone icon to call: +91 76808 64682");
+            }
+        }
+        
+        // Function to send email
+        function sendEmail() {
+            const email = "venkireddy9320@gmail.com";
+            const subject = "Inquiry about HarmonyHaven Senior Care";
+            const body = "Hello HarmonyHaven,\n\nI would like to know more about your services.";
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+        
+        // Form submission handling with EmailJS
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const relationship = document.getElementById('relationship').value;
+            const message = document.getElementById('message').value;
+            
+            const fullName = `${firstName} ${lastName}`;
+            
+            // Get message elements
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Simple validation
+            if(!firstName || !lastName || !email || !phone || !message) {
+                errorMessage.style.display = 'block';
+                document.getElementById('errorText').textContent = 'Please fill in all required fields marked with *.';
+                
+                // Hide error message after 4 seconds
+                setTimeout(function() {
+                    errorMessage.style.display = 'none';
+                }, 4000);
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.textContent = 'Sending...';
+            btnIcon.className = 'fas fa-spinner fa-spin';
+            
+            // Prepare template parameters for EmailJS
+            const templateParams = {
+                from_name: fullName,
+                reply_to: email,
+                phone: phone,
+                relationship: relationship,
+                message: message,
+                date: new Date().toLocaleString(),
+                to_email: window.EMAILJS_TO_EMAIL
+            };
+            
+            try {
+                // Send email using EmailJS
+                const response = await emailjs.send(
+                    window.EMAILJS_SERVICE_ID,
+                    window.EMAILJS_TEMPLATE_ID,
+                    templateParams
+                );
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                document.getElementById('successText').textContent = `Thank you, ${firstName}! Your message has been sent successfully. We'll contact you at ${phone} within 24 hours.`;
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.textContent = 'Send Message';
+                btnIcon.className = 'fas fa-paper-plane';
+                
+                // Hide success message after 6 seconds
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 6000);
+                
+            } catch (error) {
+                // Show error message
+                errorMessage.style.display = 'block';
+                document.getElementById('errorText').textContent = 'There was an error sending your message. Please try again or contact us directly.';
+                
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.textContent = 'Send Message';
+                btnIcon.className = 'fas fa-paper-plane';
+                
+                console.error('EmailJS Error:', error);
+                
+                // Hide error message after 4 seconds
+                setTimeout(function() {
+                    errorMessage.style.display = 'none';
+                }, 4000);
+            }
+        });
+        
+        // Show notification
+        function showNotification(message) {
+            const notification = document.getElementById('copyNotification');
+            document.getElementById('notificationText').textContent = message;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Make contact elements interactive
+        document.querySelectorAll('.clickable-contact').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = 'rgba(44, 120, 115, 0.08)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '';
+            });
+        });
+        
+        // Add focus effects to form inputs
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

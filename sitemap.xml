@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Harmony Haven</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="admin-logo">
+                <h2><i class="fas fa-home"></i> Harmony Haven</h2>
+                <p>Admin Dashboard</p>
+            </div>
+            
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#" data-section="inquiries"><i class="fas fa-inbox"></i> Admission Inquiries</a></li>
+                    <li><a href="#" data-section="contacts"><i class="fas fa-address-book"></i> Contact Messages</a></li>
+                    <li><a href="#" data-section="residents"><i class="fas fa-users"></i> Current Residents</a></li>
+                    <li><a href="#" data-section="staff"><i class="fas fa-user-nurse"></i> Staff Management</a></li>
+                    <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Back to Website</a></li>
+                </ul>
+            </nav>
+            
+            <div class="admin-user">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-info">
+                    <h4>Admin User</h4>
+                    <p>Administrator</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="admin-main">
+            <div class="admin-header">
+                <h1 id="sectionTitle">Dashboard</h1>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" id="refreshData"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="btn" id="exportData"><i class="fas fa-download"></i> Export Data</button>
+                </div>
+            </div>
+            
+            <!-- Dashboard Section -->
+            <div id="dashboardSection" class="admin-section active">
+                <div class="admin-cards">
+                    <div class="admin-card">
+                        <i class="fas fa-inbox"></i>
+                        <h3 id="inquiryCount">0</h3>
+                        <p>New Inquiries</p>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <i class="fas fa-comments"></i>
+                        <h3 id="messageCount">0</h3>
+                        <p>Unread Messages</p>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <i class="fas fa-users"></i>
+                        <h3 id="residentCount">0</h3>
+                        <p>Current Residents</p>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <i class="fas fa-user-nurse"></i>
+                        <h3 id="staffCount">0</h3>
+                        <p>Staff Members</p>
+                    </div>
+                </div>
+                
+                <div class="admin-table">
+                    <h3>Recent Admission Inquiries</h3>
+                    <table id="recentInquiriesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="admin-table mt-30">
+                    <h3>Recent Contact Messages</h3>
+                    <table id="recentMessagesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Inquiries Section -->
+            <div id="inquiriesSection" class="admin-section">
+                <div class="section-header">
+                    <h2>Admission Inquiries</h2>
+                    <div class="filter-controls">
+                        <select id="inquiryFilter">
+                            <option value="all">All Inquiries</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="followup">Needs Follow-up</option>
+                        </select>
+                        <button class="btn btn-primary" id="addInquiryBtn"><i class="fas fa-plus"></i> Add Inquiry</button>
+                    </div>
+                </div>
+                
+                <div class="admin-table">
+                    <table id="inquiriesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Resident Name</th>
+                                <th>Contact Person</th>
+                                <th>Phone</th>
+                                <th>Date Submitted</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Contacts Section -->
+            <div id="contactsSection" class="admin-section">
+                <div class="section-header">
+                    <h2>Contact Messages</h2>
+                    <div class="filter-controls">
+                        <select id="contactFilter">
+                            <option value="all">All Messages</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                            <option value="replied">Replied</option>
+                        </select>
+                        <button class="btn" id="markAllReadBtn"><i class="fas fa-envelope-open"></i> Mark All as Read</button>
+                    </div>
+                </div>
+                
+                <div class="admin-table">
+                    <table id="contactsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Residents Section -->
+            <div id="residentsSection" class="admin-section">
+                <div class="section-header">
+                    <h2>Current Residents</h2>
+                    <div class="filter-controls">
+                        <select id="residentFilter">
+                            <option value="all">All Residents</option>
+                            <option value="independent">Independent Living</option>
+                            <option value="assisted">Assisted Living</option>
+                            <option value="memory">Memory Care</option>
+                        </select>
+                        <button class="btn btn-primary" id="addResidentBtn"><i class="fas fa-plus"></i> Add Resident</button>
+                    </div>
+                </div>
+                
+                <div class="admin-table">
+                    <table id="residentsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Room</th>
+                                <th>Care Level</th>
+                                <th>Admission Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Staff Section -->
+            <div id="staffSection" class="admin-section">
+                <div class="section-header">
+                    <h2>Staff Management</h2>
+                    <div class="filter-controls">
+                        <select id="staffFilter">
+                            <option value="all">All Staff</option>
+                            <option value="nursing">Nursing</option>
+                            <option value="care">Caregivers</option>
+                            <option value="admin">Administration</option>
+                            <option value="activities">Activities</option>
+                        </select>
+                        <button class="btn btn-primary" id="addStaffBtn"><i class="fas fa-plus"></i> Add Staff</button>
+                    </div>
+                </div>
+                
+                <div class="admin-table">
+                    <table id="staffTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Department</th>
+                                <th>Contact</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Settings Section -->
+            <div id="settingsSection" class="admin-section">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                </div>
+                
+                <div class="settings-container">
+                    <div class="settings-card">
+                        <h3><i class="fas fa-user-shield"></i> Account Settings</h3>
+                        <form id="accountSettingsForm">
+                            <div class="form-group">
+                                <label for="adminName">Admin Name</label>
+                                <input type="text" id="adminName" class="form-control" value="Administrator">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="adminEmail">Email Address</label>
+                                <input type="email" id="adminEmail" class="form-control" value="admin@harmonyhaven.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" class="form-control">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Update Account</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3><i class="fas fa-bell"></i> Notification Settings</h3>
+                        <form id="notificationSettingsForm">
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="notifyNewInquiries" checked>
+                                    <label for="notifyNewInquiries">Email me when new admission inquiries are submitted</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="notifyNewMessages" checked>
+                                    <label for="notifyNewMessages">Email me when new contact messages are received</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="notifyDailySummary">
+                                    <label for="notifyDailySummary">Send me a daily summary email</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="notificationEmail">Notification Email Address</label>
+                                <input type="email" id="notificationEmail" class="form-control" value="admin@harmonyhaven.com">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Save Notification Settings</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3><i class="fas fa-database"></i> Data Management</h3>
+                        <div class="data-actions">
+                            <button class="btn" id="backupDataBtn"><i class="fas fa-save"></i> Backup Data</button>
+                            <button class="btn" id="restoreDataBtn"><i class="fas fa-undo"></i> Restore Data</button>
+                            <button class="btn" id="clearDataBtn" style="background-color: #dc3545; color: white;"><i class="fas fa-trash"></i> Clear All Data</button>
+                        </div>
+                        
+                        <div class="data-info">
+                            <h4>Storage Information</h4>
+                            <p>Data is stored locally in your browser using localStorage.</p>
+                            <p>To transfer data to another device, use the backup and restore functions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Inquiry Modal -->
+    <div class="modal" id="viewInquiryModal">
+        <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeModal('viewInquiryModal')">&times;</button>
+            <h2>Admission Inquiry Details</h2>
+            <div id="inquiryDetails">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="approveInquiryBtn">Approve</button>
+                <button class="btn" id="rejectInquiryBtn" style="background-color: #dc3545; color: white;">Reject</button>
+                <button class="btn" id="markFollowupBtn">Mark for Follow-up</button>
+                <button class="btn" onclick="closeModal('viewInquiryModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Message Modal -->
+    <div class="modal" id="viewMessageModal">
+        <div class="modal-content" style="max-width: 700px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeModal('viewMessageModal')">&times;</button>
+            <h2>Message Details</h2>
+            <div id="messageDetails">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="replyMessageBtn">Reply</button>
+                <button class="btn" onclick="closeModal('viewMessageModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content" style="max-width: 600px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeModal('editModal')">&times;</button>
+            <h2 id="editModalTitle">Add New Record</h2>
+            <form id="editForm">
+                <div id="editFormContent">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn" onclick="closeModal('editModal')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/validation.js"></script>
+    <script type="module" src="js/gallery.js"></script>
+    <script type="module" src="js/site.js"></script>
+    <script src="admin.js"></script>
+    <style>
+        /* Additional styles for admin page */
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .user-avatar {
+            font-size: 2.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .user-info h4 {
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .user-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .admin-section {
+            display: none;
+        }
+        
+        .admin-section.active {
+            display: block;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .filter-controls select {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .settings-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .settings-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .settings-card h3 {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .data-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .data-info {
+            background-color: var(--light-color);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .data-info h4 {
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-sidebar {
+                width: 70px;
+                overflow: hidden;
+            }
+            
+            .admin-sidebar .admin-logo h2,
+            .admin-sidebar .admin-logo p,
+            .admin-sidebar .admin-nav a span,
+            .admin-sidebar .user-info {
+                display: none;
+            }
+            
+            .admin-sidebar .admin-nav a {
+                justify-content: center;
+                padding: 15px;
+            }
+            
+            .admin-sidebar .admin-nav i {
+                margin-right: 0;
+                font-size: 1.2rem;
+            }
+            
+            .admin-main {
+                margin-left: 70px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .filter-controls {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .settings-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

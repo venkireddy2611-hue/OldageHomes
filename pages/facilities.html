@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Facilities - Harmony Haven Senior Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <style>
+        /* Facilities Page Specific Styles */
+        .page-header {
+            background: linear-gradient(rgba(44, 120, 115, 0.9), rgba(44, 120, 115, 0.9)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .facilities-gallery {
+            padding: 80px 0;
+            background: #f7f9f9;
+        }
+        
+        .facility-category {
+            margin-bottom: 60px;
+        }
+        
+        .category-title {
+            color: #2c7873;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ff9a76;
+        }
+        
+        .category-title i {
+            color: #ff9a76;
+            font-size: 1.5rem;
+        }
+        
+        .facility-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .facility-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .facility-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .facility-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .facility-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .facility-info {
+            padding: 20px;
+        }
+        
+        .facility-info h3 {
+            color: #2c7873;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .facility-info p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* Additional Facilities */
+        .additional-facilities {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .facilities-icons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .facility-icon {
+            padding: 25px 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .facility-icon:hover {
+            transform: translateY(-5px);
+            border-color: #2c7873;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .facility-icon i {
+            font-size: 2.5rem;
+            color: #2c7873;
+            margin-bottom: 15px;
+        }
+        
+        .facility-icon h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .facility-icon p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c7873, #6fb3b8);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-section .btn-primary {
+            background: white;
+            color: #2c7873;
+        }
+        
+        .cta-section .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="Harmony Haven Logo" onerror="this.src='https://via.placeholder.com/60x60/2c7873/ffffff?text=HH'">
+                <div class="logo-text">
+                    <h1>Harmony<span>Haven</span></h1>
+                    <p class="tagline">Senior Care Home</p>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="facilities.html" class="active">Facilities</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="admission.html" class="btn btn-primary">Book Visit</a>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Facilities</h1>
+            <p>World-Class Amenities for Comfortable Living</p>
+        </div>
+    </section>
+
+    <!-- Facilities Gallery -->
+    <section class="facilities-gallery">
+        <div class="container">
+            <!-- Accommodation -->
+            <div class="facility-category">
+                <h2 class="category-title">
+                    <i class="fas fa-bed"></i>
+                    Accommodation
+                </h2>
+                <div class="facility-images">
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Single Room">
+                        <div class="facility-info">
+                            <h3>Private Rooms</h3>
+                            <p>Spacious rooms with attached bathroom and emergency call system</p>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Shared Room">
+                        <div class="facility-info">
+                            <h3>Shared Rooms</h3>
+                            <p>Comfortable shared accommodation for companionship</p>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Deluxe Suite">
+                        <div class="facility-info">
+                            <h3>Deluxe Suites</h3>
+                            <p>Premium suites with separate living areas and amenities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Facilities -->
+            <div class="facility-category">
+                <h2 class="category-title">
+                    <i class="fas fa-hospital"></i>
+                    Medical Facilities
+                </h2>
+                <div class="facility-images">
+                    <!-- Medical Center Image -->
+<div class="facility-item">
+    <img src="https://c4.wallpaperflare.com/wallpaper/978/657/202/medicine-hospital-wallpaper-preview.jpg" alt="Medical Center">
+    <div class="facility-info">
+        <h3>Medical Center</h3>
+        <p>Fully equipped medical center with 24/7 nursing staff</p>
+    </div>
+</div>
+
+<!-- Pharmacy Image -->
+<div class="facility-item">
+    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pharmacy">
+    <div class="facility-info">
+        <h3>Pharmacy</h3>
+        <p>On-site pharmacy for medication management</p>
+    </div>
+</div>
+
+<!-- Physiotherapy Image -->
+<div class="facility-item">
+    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Physiotherapy">
+    <div class="facility-info">
+        <h3>Physiotherapy Center</h3>
+        <p>Modern rehabilitation and therapy equipment</p>
+    </div>
+</div>
+                </div>
+            </div>
+
+            <!-- Dining Facilities -->
+            <div class="facility-category">
+                <h2 class="category-title">
+                    <i class="fas fa-utensils"></i>
+                    Dining Facilities
+                </h2>
+                <div class="facility-images">
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dining Hall">
+                        <div class="facility-info">
+                            <h3>Dining Hall</h3>
+                            <p>Spacious communal dining area for social meals</p>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kitchen">
+                        <div class="facility-info">
+                            <h3>Modern Kitchen</h3>
+                            <p>Hygienic commercial kitchen with modern equipment</p>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cafe">
+                        <div class="facility-info">
+                            <h3>Cafe Area</h3>
+                            <p>24/7 snack bar and social gathering space</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recreational Facilities -->
+            <div class="facility-category">
+                <h2 class="category-title">
+                    <i class="fas fa-smile"></i>
+                    Recreational Facilities
+                </h2>
+                <div class="facility-images">
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Garden">
+                        <div class="facility-info">
+                            <h3>Landscaped Gardens</h3>
+                            <p>Beautiful outdoor spaces with walking paths</p>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Activity Hall">
+                        <div class="facility-info">
+                            <h3>Activity Hall</h3>
+                            <p>Multi-purpose hall for group activities and events</p>
+                        </div>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Library">
+                        <div class="facility-info">
+                            <h3>Library</h3>
+                            <p>Well-stocked reading room with comfortable seating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Facilities -->
+    <section class="additional-facilities">
+        <div class="container">
+            <h2 class="section-title">Additional Amenities</h2>
+            <div class="facilities-icons">
+                <div class="facility-icon">
+                    <i class="fas fa-wifi"></i>
+                    <h4>High-Speed Wi-Fi</h4>
+                    <p>Internet access throughout facility</p>
+                </div>
+                
+                <div class="facility-icon">
+                    <i class="fas fa-tv"></i>
+                    <h4>TV Lounge</h4>
+                    <p>Entertainment area with large screen</p>
+                </div>
+                
+                <div class="facility-icon">
+                    <i class="fas fa-pray"></i>
+                    <h4>Prayer Room</h4>
+                    <p>Multi-faith prayer space</p>
+                </div>
+                
+                <div class="facility-icon">
+                    <i class="fas fa-cut"></i>
+                    <h4>Salon & Barber</h4>
+                    <p>Weekly grooming services</p>
+                </div>
+                
+                <div class="facility-icon">
+                    <i class="fas fa-car"></i>
+                    <h4>Transport Services</h4>
+                    <p>Vehicle for medical visits</p>
+                </div>
+                
+                <div class="facility-icon">
+                    <i class="fas fa-camera"></i>
+                    <h4>Security</h4>
+                    <p>24/7 CCTV and security staff</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Want to Experience Our Facilities?</h2>
+            <p>Schedule a personal tour to see our home firsthand</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Book a Tour</a>
+                <a href="tel:+918519937446" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call for Virtual Tour
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="Logo" height="40" onerror="this.src='https://via.placeholder.com/40/2c7873/ffffff?text=HH'">
+                        <h3>Harmony Haven</h3>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+918519937446">+91 85199 37446</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:venkireddy9320@gmail.com">venkireddy9320@gmail.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Emergency</h4>
+                    <ul class="emergency-contacts">
+                        <li><a href="tel:108">108 - Ambulance</a></li>
+                        <li><a href="tel:102">102 - Emergency</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Harmony Haven Senior Care Home</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/918519937446" class="floating-btn whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+918519937446" class="floating-btn call-float">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
