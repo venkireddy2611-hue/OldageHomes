@@ -672,6 +672,67 @@ footer {
     text-decoration: underline;
 }
 
+/* ========== SITE TILES, ACHIEVEMENTS & MODAL ========== */
+.site-tiles {
+    padding: 60px 0;
+    background: linear-gradient(180deg, rgba(247,249,249,1), rgba(255,255,255,1));
+}
+.tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+.tile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    background: var(--white-color);
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tile-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+.tile-card .tile-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+}
+.tile-card h3 { margin: 0; font-size: 1.1rem; }
+.tile-card p { margin: 0; color: var(--gray-color); font-size: 0.95rem; }
+.tile-btn { cursor: pointer; border: none; background: none; text-align: left; padding: 20px; }
+.tile-contact a { color: var(--primary-color); text-decoration: underline; }
+
+.achievements-section { padding: 40px 0 60px; background: transparent; }
+.achievements-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+.achievement-item { background: var(--white-color); padding: 25px; border-radius: 10px; text-align: center; min-width: 160px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.achievement-item h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 5px; }
+.achievement-item p { color: var(--gray-color); }
+
+/* Modal */
+.modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 2000; }
+.modal[aria-hidden="false"] { display: flex; }
+.modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.modal-content { position: relative; background: var(--white-color); width: 100%; max-width: 520px; padding: 25px; border-radius: 10px; z-index: 2; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal-close { position: absolute; right: 12px; top: 12px; background: none; border: none; font-size: 1.6rem; cursor: pointer; }
+.query-form input, .query-form textarea { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid #e6e6e6; margin-bottom: 12px; font-size: 1rem; }
+.query-form textarea { min-height: 120px; resize: vertical; }
+.form-status { margin-top: 10px; color: var(--primary-color); font-weight: 600; }
+
 /* ========== FLOATING BUTTONS ========== */
 .floating-buttons {
     position: fixed;

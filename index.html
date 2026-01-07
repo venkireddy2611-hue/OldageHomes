@@ -100,6 +100,71 @@
         </div>
     </section>
 
+    <!-- Site Tiles -->
+    <section class="site-tiles">
+        <div class="container">
+            <h2 class="section-title">Explore More</h2>
+            <div class="tiles-grid">
+                <a class="tile-card" href="index.html">
+                    <div class="tile-icon"><i class="fas fa-door-open"></i></div>
+                    <h3>Opening Page</h3>
+                    <p>Home and highlights</p>
+                </a>
+
+                <a class="tile-card" href="pages/services.html">
+                    <div class="tile-icon"><i class="fas fa-concierge-bell"></i></div>
+                    <h3>Services</h3>
+                    <p>View all our care services</p>
+                </a>
+
+                <a class="tile-card" href="#achievements">
+                    <div class="tile-icon"><i class="fas fa-award"></i></div>
+                    <h3>Achievements</h3>
+                    <p>Our milestones &amp; recognitions</p>
+                </a>
+
+                <a class="tile-card" href="#" onclick="window.open('https://search.google.com/local/writereview?placeid=PLACE_ID','_blank');return false;">
+                    <div class="tile-icon"><i class="fas fa-star"></i></div>
+                    <h3>Google Reviews</h3>
+                    <p>Read or write reviews</p>
+                </a>
+
+                <button class="tile-card tile-btn" type="button" data-open="queryModal">
+                    <div class="tile-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3>Query Box</h3>
+                    <p>Quickly send us a question</p>
+                </button>
+
+                <div class="tile-card tile-contact">
+                    <div class="tile-icon"><i class="fas fa-address-book"></i></div>
+                    <h3>Contact &amp; Policies</h3>
+                    <p><a href="pages/contact.html">Contact Us</a> · <a href="pages/privacy-policy.html">Privacy</a> · <a href="pages/terms-conditions.html">Terms</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="achievements-section">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <h3>12+</h3>
+                    <p>Years of compassionate care</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>500+</h3>
+                    <p>Families supported</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>5</h3>
+                    <p>Quality awards &amp; recognitions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Emergency Contact Section -->
     <section class="emergency-contact">
         <div class="container">
@@ -132,6 +197,26 @@
             </div>
         </div>
     </section>
+
+    <!-- Quick Query Modal -->
+    <div class="modal" id="queryModal" aria-hidden="true">
+      <div class="modal-overlay" data-close="true"></div>
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="queryModalTitle">
+        <button class="modal-close" data-close="true" aria-label="Close">&times;</button>
+        <h3 id="queryModalTitle">Quick Query</h3>
+        <form id="quickQueryForm" class="query-form">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <input type="tel" name="phone" placeholder="Phone (optional)">
+          <textarea name="message" placeholder="Write your question" required></textarea>
+          <div class="modal-actions">
+            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="button" class="btn btn-outline" data-close="true">Cancel</button>
+          </div>
+          <div class="form-status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -255,5 +340,45 @@
     <script src="js/main.js"></script>
     <script src="js/form-validation.js"></script>
     <script src="js/whatsapp-call.js"></script>
+    <script>
+    (function(){
+      // Modal open/close
+      function openModal(id){
+        var m = document.getElementById(id);
+        if(!m) return;
+        m.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal(modal){
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+      document.addEventListener('click', function(e){
+        var btn = e.target.closest('[data-open]');
+        if(btn){ openModal(btn.getAttribute('data-open')); }
+        if(e.target.closest('[data-close]')){
+          var modal = e.target.closest('.modal');
+          if(modal) closeModal(modal);
+        }
+      });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ document.querySelectorAll('.modal[aria-hidden="false"]').forEach(function(m){ closeModal(m); }); } });
+
+      // Quick query form submit via fetch
+      var form = document.getElementById('quickQueryForm');
+      if(form){
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          var status = form.querySelector('.form-status');
+          status.textContent = 'Sending...';
+          fetch('backend/submit-contact.php', { method: 'POST', body: new FormData(form) })
+            .then(function(r){ return r.json(); })
+            .then(function(json){
+              if(json.success){ status.textContent = json.message || 'Message sent'; form.reset(); setTimeout(function(){ var m=document.getElementById('queryModal'); if(m) closeModal(m); },1200); }
+              else{ status.textContent = json.message || 'An error occurred'; }
+            }).catch(function(){ status.textContent = 'Network error. Please try again.'; });
+        });
+      }
+    })();
+    </script>
 </body>
 </html>
